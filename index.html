@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="hero__container">
                     <a class="hero__link" href="./favorite.html">
-                        <span>Избранное</span>
+                        <span class="hero__link-text">Избранное</span>
                         <svg class="hero__icon">
                             <use xlink:href="./image/sprite.svg#star-ow"></use>
                         </svg>
@@ -31,7 +31,7 @@
         <section class="search">
             <div class="container">
                 <form class="search__form">
-                    <input class="search__input" type="search">
+                    <input class="search__input" type="search" placeholder="Найти видео...">
                     <button class="search__btn" type="submit">
                         <span>поиск</span>
                         <svg class="search__icon">
@@ -115,18 +115,18 @@
     </main>
     <footer class="footer">
         <div class="container footer__container">
-            <a href="/" class="footer__link">
+            <a href="/" class="footer__link footer__link_logo">
                 <svg class="footer__logo" viewBox="0 0 360 48" role="img" aria-label="Логотип сервиса You-Tvideo">
                     <use xlink:href="./image/sprite.svg#logo-white"></use>
                 </svg>
             </a>
             <ul class="footer__developers">
                 <li class="footer__developers-item">
-                    Designer:
-                    <a href="https://t.me/Mrsmallowww" class="footer__developers-link" target="_blank"
-                        rel="noopener">Anastasia Ilina</a>
-                    Developer:
-                    <a href="https://t.me/tkachuk_87" target="_blank" rel="noopener">Nadezhda Tkachuk</a>
+                    <p>Designer:
+                    <a class="footer__link footer__link_developers" href="https://t.me/Mrsmallowww" target="_blank"
+                        rel="noopener">Anastasia Ilina</a></p>
+                    <p>Developer:
+                    <a class="footer__link footer__link_developers" href="https://t.me/tkachuk_87" target="_blank" rel="noopener">Nadezhda Tkachuk</a></p>
                 </li>
             </ul>
             <p class="footer__copyright">© You-Tvideo, 2023</p>
