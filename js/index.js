@@ -1,6 +1,6 @@
 const APY_KEY = "AIzaSyDQXM6WhonrBkUovsstbs1yNSIKj39EmW4";
 const VIDEOS_URL = "https://www.googleapis.com/youtube/v3/videos";
-const SEARCH_URL = "https://www.googleapis.com/youtube/v3/search";
+// const SEARCH_URL = "https://www.googleapis.com/youtube/v3/search";
 
 const favoriteIds = JSON.parse(localStorage.getItem("favoriteYT") || "[]");
 
@@ -58,7 +58,9 @@ const fetchTrendingVideos = async () => {
     }
     return await response.json();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("error:", error);
+    return null;
   }
 };
 
@@ -81,7 +83,9 @@ const fetchFavoriteVideos = async () => {
     }
     return await response.json();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("error:", error);
+    return null;
   }
 };
 
@@ -100,7 +104,9 @@ const fetchVideoData = async (id) => {
     }
     return await response.json();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("error:", error);
+    return null;
   }
 };
 
@@ -179,8 +185,8 @@ const displayVideo = ({ items: [video] }) => {
 };
 
 const init = () => {
-  const currentPage = location.pathname.split("/").pop();
-  const urlSearchParams = new URLSearchParams(location.search);
+  const currentPage = window.location.pathname.split("/").pop();
+  const urlSearchParams = new URLSearchParams(window.location.search);
   const videoId = urlSearchParams.get("id");
   const searchQuery = urlSearchParams.get("q");
 
@@ -198,14 +204,14 @@ const init = () => {
     const itemFavorite = target.closest(".favorite");
 
     if (itemFavorite) {
-      const videoId = itemFavorite.dataset.videoId;
+      const video = itemFavorite.dataset.videoId;
 
-      if (favoriteIds.includes(videoId)) {
-        favoriteIds.splice(favoriteIds.indexOf(videoId), 1);
+      if (favoriteIds.includes(video)) {
+        favoriteIds.splice(favoriteIds.indexOf(video), 1);
         localStorage.setItem("favoriteYT", JSON.stringify(favoriteIds));
         itemFavorite.classList.remove("active");
       } else {
-        favoriteIds.push(videoId);
+        favoriteIds.push(video);
         localStorage.setItem("favoriteYT", JSON.stringify(favoriteIds));
         itemFavorite.classList.add("active");
       }
